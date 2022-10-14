@@ -1,0 +1,12 @@
+#include <iostream>
+int main() {
+    int w=0;
+    int k=0;
+    std::cin>>w;
+    if (0!=w%5){
+    k=(w/5)+1;
+    } else {
+        k=w/5;
+    }
+    std::cout<<k;
+}
