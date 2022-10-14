@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+int main() 
+{
+    int n = 0;
+    int razmer=0;
+    std::cin>>n;
+    razmer=n;
+    std::vector <int> a(1000,0);
+    for (int i = 0; i < n; i++)
+    {
+        std::cin>>a[i];  
+    }
+
+    for (int iSort=n-1; iSort>=0; iSort--)
+    { 
+        const int& arr=a[iSort];
+        for (int b=0; arr && b< iSort;b++)
+        {
+          if (arr==a[b]) 
+          {
+             a[b] =0;
+             n-=1; 
+          }
+        }
+    }
+    std::cout<<n<<'\n';
+    for (int viivod=0; viivod<razmer; viivod++)
+    {
+        if (a[viivod]!=0) {
+        std::cout<<a[viivod]<<' ';
+        }
+    }
+    return 0;
+}
