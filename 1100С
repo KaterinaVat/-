@@ -1,0 +1,13 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+int main() {
+    int n,r;
+    double R;
+ 
+    
+    std::cin>>n>>r;
+    const double PI = 3.141592653589793;
+    R=(r*(sin(PI/n)))/(1-sin(PI/n));
+   std::printf("%.8lf", R);
+}
