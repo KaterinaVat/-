@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+int main() {
+	int n = 0;
+	int k = 0;
+	std::cin >> n >> k;
+	int time = 0;
+	int time0 = 0;
+	int maxd=0;
+	std::vector <int> arr(n);
+	for (int ich = 0; ich < n; ich++) {
+		std::cin >> arr[ich];
+	}
+	std::vector <int> dels;
+	dels.reserve(k);
+	for (int idel = 0; idel < n; idel++) {
+		if (k % arr[idel] == 0) {
+			dels.push_back(arr[idel]);
+            maxd=std::max(maxd,arr[idel]);
+		}
+	}
+    std::cout<<k/maxd;
+	}
