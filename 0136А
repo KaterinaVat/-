@@ -1,0 +1,54 @@
+#include <iostream>
+
+int main() {
+	int x = 0;
+	int y = 0;
+	int ans = 0;
+	int position = 0;
+	int n = 0;
+	int cost = 0;
+	std::cin >> n;
+	std::string way;
+	std::cin >> way;
+	if (way[0] == 'U') {
+		y += 1;
+	} else {
+		x += 1;
+	}
+		//проверяем первоначальное положение 
+	if (y > x) {
+		position = 0;
+	}
+	if (x>y) {
+		position = 1;
+	}
+
+	for (int iWay = 1; iWay < n; iWay++) {
+		if (way[iWay] == 'U')
+		{
+			y += 1;
+		} else {
+			x += 1;
+		}
+		if (x > y)
+		{
+			ans = 1;
+		}
+		if (x < y)
+		{
+			ans = 0;
+		}
+		if (x == y) {
+			ans = position;
+		}
+		if (ans != position)
+		{
+			position = ans;
+			cost += 1;
+		}
+		}
+
+		std::cout << cost << '\n';
+	}
+
+
