@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+int count2(int n) {
+	int count = 0;
+	while ((n>0) && (n%2==0)){
+		count += 1;
+		n = n / 2;
+	}
+	return count;
+}
+
+int exponentiation(int n) {
+	int stepen = 1;
+	for (int j = 0; j < n; ++j) {
+		stepen *= 2;
+	}
+	return stepen;
+}
+
+
+
+int main() {
+	int t = 0;
+	std::cin >> t;
+	while (t--) {
+		int n = 0;
+		std::cin >> n;
+		std::vector <int> arr(n);
+		int proizvedeni = 1;
+		for (int i = 0; i < n; ++i) {
+			int a;
+			std::cin >> a;
+			proizvedeni *= a;
+		}
+		int counttwo = 0; //вывод количества двоек произведения
+		counttwo = count2(proizvedeni);
+
+		int smax = 0;   //число на которое делится наше произведение *i
+		smax = exponentiation(n);
+
+		
+
+		int ans = -1;
+		std::cout << "число двоек = " << counttwo << " 2^i = " << smax << '\n';
+		if (proizvedeni == smax) {
+			ans = 0;
+		}
+		else {
+			for (int f = nmax; f >= 2; f = f - 2) {  //беру максимальный четный н
+				if ((proizvedeni * f) % smax == 0) {
+					ans = count2(f);
+				}
+			}
+		}
+		std::cout <<"ANSWER!!!                                       "<< ans << '\n';
+
+	}
+}
