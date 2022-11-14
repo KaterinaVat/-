@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <stdio.h>
+int main() {
+    int t = 0;
+    std::cin >> t;
+    std::vector <int> arr(t);
+    std::vector <int> last;
+ 
+    last.reserve(t);
+    for (int i = 0; i < t; i++) {
+        std::cin >> arr[i];
+        auto result = std::find(last.begin(), last.end(), arr[i]);
+        if (result == last.end()) {
+            last.push_back(arr[i]);
+        }
+    }
+ 
+    int minJ = 100000000000;
+    std::vector <int> last_numm(last.size());
+    for (int i = 0; i < last.size(); i++) {
+        int element = last[i];
+        for (int j = t - 1; j >= 0; j = j - 1) {
+            if (element == arr[j]) {
+                last_numm[i] = j;
+                break;
+            }
+        }
+    }
+   /* std::cout << '\n';
+    std::cout << "arr   ";
+    for (int j = 0; j < arr.size(); j++) {
+        std::cout << arr[j] << ' ';
+    }
+    std::cout << '\n';
+    std::cout << "last   ";
+    for (int p = 0; p < last.size(); p++) {
+        std::cout << last[p] << ' ';
+    }
+    std::cout << '\n';
+    std::cout << "last_numm   ";
+    for (int p = 0; p < last.size(); p++) {
+        std::cout << last_numm[p] << ' ';
+    } 
+    std::cout << "*";*/
+    for (int p = 0; p < last_numm.size(); p++) {
+        minJ = std::min(minJ, last_numm[p]);
+    }
+    // std::cout << '\n';
+    std::cout<< arr[minJ];
+}
