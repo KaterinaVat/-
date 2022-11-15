@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+int main() {
+	int t = 0;
+	std::cin >> t;
+	std::vector <int> sum_of_marks(t);
+	int i = 0;
+	while (i<t) {
+		for (int j = 0; j < 4; j++) {
+			int mark = 0;
+			std::cin >> mark;
+			sum_of_marks[i] += mark;
+		}
+		i++;
+	}
+	int count_of_bigger = 1;
+	const int boy = sum_of_marks[0];
+	for (int p = 1; p < t; p++) {
+		if (boy < sum_of_marks[p]) {
+			count_of_bigger += 1;
+		}
+	}
+	//std::cout << '\n';
+	std::cout << count_of_bigger;
+}
