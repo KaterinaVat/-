@@ -1,0 +1,33 @@
+
+#include <iostream>
+#include <cmath>
+
+double factorial(int& t) {
+	int f = 1;
+	for (int i = 2; i <= t; i++) {
+		f *= i;
+	}
+	return f;
+}
+
+int main() {
+	double sum = 0.0;
+	double deltaX = 0.05;
+	int j = 0;
+	double last_element = 100000.0;
+	std::cout << " Number of element	" << "Element" << std::endl;
+	for (double x = 0.1; x <= 1.0; x = x + deltaX) {
+		double element;
+
+		element = pow(2 * x, j) / factorial(j);
+		if (abs(element - last_element) < 0.0001) {
+			break;
+		} 
+		last_element = element;
+		sum += element;
+		std::cout << j << "			 " << element << std::endl;;
+		j += 1;
+
+	}
+	std::cout << "Current summ is " << sum << std:: endl;
+} 
